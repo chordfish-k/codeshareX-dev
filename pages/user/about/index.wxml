@@ -1,0 +1,17 @@
+<cu-custom bgColor="bg-gradual-blue" isCustom="{{true}}">
+	<view slot="backText">返回</view>
+	<view slot="content">CodeShareX</view>
+</cu-custom>
+
+<view class='margin-xl bg-white padding-xl radius shadow-lg'>
+  <view class='text-center margin-bottom text-lg  text-grey'>关于CodeShareX</view>
+  <view class='text-content'>
+    <view>Hi！欢迎使用CodeShareX!</view>
+    <!-- <view class='margin-top-sm'>该项目是华南师大Invictus Coding团队为了解决代码传输问题所开发的小程序！</view> -->
+    <view class='margin-top-sm'>如果你觉得这个小程序帮到你了，或者说很赞，可以扫码支援一下我们，因为服务器开销也是有的呀QAQ</view>
+    <view class='margin-top-sm'>如果你有更好的想法，欢迎联系我们！</view>
+    <view class='margin-top-sm'>更多功能敬请期待！</view>
+    <view class="margin-top-sm">Power By ColorUI</view>
+  </view>
+</view>
+

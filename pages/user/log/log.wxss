@@ -1,0 +1,4 @@
+/* pages/user/log/log.wxss */
+.mycolor{
+    background-color: #96CDCD;
+}

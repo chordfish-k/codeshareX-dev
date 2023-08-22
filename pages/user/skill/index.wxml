@@ -1,0 +1,16 @@
+<cu-custom bgColor="bg-gradual-blue" isCustom="{{true}}">
+	<view slot="backText">返回</view>
+	<view slot="content">使用技巧</view>
+</cu-custom>
+
+<view class='margin-xl bg-white padding-xl radius shadow-lg'>
+  <view class='text-center margin-bottom text-lg  text-grey'>使用技巧</view>
+  <view class='text-content'>
+    <view class='margin-top-sm'>将代码复制到输入框中，记得选择相对应的语言噢，这样分享出去才会有高亮效果。</view>
+    <view class='margin-top-sm'>点击发布后代码才会储存在云端。因为有内容审核，所以有时候保存速度会慢一些，请耐心等待直到出现"保存成功"字样！</view>
+    <view class='margin-top-sm'>在"收藏"和"我发布的"区域中，你可以长按代码块进行删除操作。</view>
+    <view class='margin-top-sm'>在别人的分享页面中，你可以点击转存将别人发布的代码储存在"我发布的"中。</view>
+    <view class="margin-top-sm">在首页中，你可以输入分享页面中的唯一文本ID进行快速搜索。</view>
+  </view>
+</view>
+

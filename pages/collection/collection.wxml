@@ -1,0 +1,52 @@
+<cu-custom bgColor="bg-gradual-blue">
+	<!--view slot="content">收藏({{collections.length}})</view-->
+    <view slot="content" class="mytoptext">CodeShareX</view>
+</cu-custom>
+
+<!-- 回到顶部按钮 -->
+<view class="fixedBtn flex justify-end" hidden="{{!showReturnTopBtn}}" bindtap="scrollToTop">
+    <view class="cu-btn bg-blue icon radius shadow margin-sm" style="width: 120rpx;height: 120rpx;"><text class="cuIcon-top lg round"></text></view>
+</view>
+
+<view class="bg-white flex align-center">
+    <view class="flex-sub text-center">
+        <view class="text-lg padding-sm text-bold">
+            <text class="text-black">我的收藏({{collections.length}})</text>
+        </view>
+    </view>
+</view>
+
+<view class="top">
+    <view class="plate">
+        <block wx:for="{{collections}}" wx:for-index="id" wx:key="content">
+            <view class="posterBox"  bindtap="onTapCard"  data-index="{{id}}" data-contentID="{{item.contentID}}">
+                <!--发布者头像-->
+                <view class="poster">
+                    <image src="{{item.photo}}" class="posterFace"/>
+                </view>
+                <view class="posterContent" > 
+                    <!--该页基础信息-->
+                    <view class="posterMessg">
+                        <view class="posterName cf">
+                            <view class="fl">
+                                {{item.name}}<span class="posterTimeStamp" style="margin-left: 15rpx;font-weight: bold;"><span style="font-weight: bolder;border-radius: 6rpx;background-color: #444;color: white;padding:10rpx">{{item.lang?item.lang:"Unknow"}}</span></span>
+                            </view>
+                            <!--删除按钮-->
+                            <view class="fr margin-right">
+                                <text class="cuIcon-close text-gray light" catchtap="tryDeleteCard" data-index="{{id}}" data-contentID="{{item.contentID}}"></text>
+                            </view>
+                        </view>
+                        
+                        <view class="posterTimeStamp">{{item.time}} <span class="posterTimeStamp">{{item.neverDestory || item.neverDestory==undefined?"永久": "-- " + item.destoryTimeStr}}</span></view>
+                    </view>
+                    <!--该页的概要-->
+                    <view class="detail">{{item.short}}{{item.short.length>=100?"......":""}}</view>
+                </view>
+            </view>
+        </block>
+
+        
+    </view>
+
+
+</view>

@@ -1,0 +1,305 @@
+/**index.wxss**/
+page{
+  height: 100%;
+}
+.outside{
+  height: 100%; width: 100%;background-color: white;
+}
+.topbar{
+    display: flex; 
+    height: 25rpx;
+    width: 100%;
+    align-items: center; 
+    padding: 12rpx;
+}
+
+.topbar button{
+    width: 100rpx;
+}
+.topbar picker{
+    width: 30%;
+}
+
+.textbox{
+    margin: 4rpx;
+    width: 95%;
+    height: 100%;
+    border: 2px solid #DDD;
+    border-radius: 4rpx;
+}
+
+textarea{
+    padding: 10rpx;
+    background-color: #EEE;
+    width: 93%;
+    height: 100%;
+    font-size: 30rpx;
+}
+
+.code{
+  width: 100%;
+  background-color: tomato;
+}
+
+.posterBox{
+  padding: 5rpx;
+  width: 100%;
+  display: flex;
+  vertical-align: center;
+  line-height: 60rpx;
+  background-color: #444;
+}
+
+.posterName{
+  font-weight: bold;
+  font-size:26rpx;
+  margin-left: 10rpx;
+  color: white;
+}
+.posterTimeStamp{
+  margin-left: 10rpx;
+  font-size: 20rpx;
+  color: white;
+  height: 40rpx;
+}
+
+.contentidBox{
+  margin-left: 10rpx;
+  display: flex;
+}
+
+.news{
+  width: 100%;
+  height: 100rpx;
+  border: solid 1px #aaa;
+}
+.newsBox{
+  padding: 5rpx;
+  width: 100%;
+  height: 100%;
+  background-color: white;
+}
+.newsItem{
+  padding: 16rpx;
+  width: 97%;
+  display: flex;
+  vertical-align: center;
+  line-height: 60rpx;
+  margin: 14rpx;
+  margin-bottom: 20rpx;
+  background-color: white;
+  border-radius: 10rpx;
+  border-bottom: solid 1px #eee;
+}
+.userFace{
+  width:95rpx;
+  height:95rpx;
+  border-radius: 50%;
+}
+.newsContent{
+  
+  float:left;
+  width:100%;
+  height: auto;
+  margin-left: 10rpx;
+}
+.userMessg{
+  width:100%;
+  height: 50rpx;
+  vertical-align: bottom;
+}
+
+
+.userName{
+  font-weight: bold;
+  font-size:26rpx;
+  margin-left: 10rpx;
+}
+.timeStamp{
+  margin-left: 25rpx;
+  font-size: 10px;
+}
+
+.commentNo{
+  margin-left: 25rpx;
+  font-size: 10px;
+  float: right;
+  text-decoration: underline;
+}
+
+.replyTo{
+  margin-left: 5rpx;
+  text-decoration: underline;
+}
+
+.newsDescription{
+  display: block;
+  width: 100%;
+  margin-left: 10rpx;
+}
+.newsDetail{
+  font-size: 26rpx;
+  width: 100%;
+  height: auto;
+  word-wrap: break-word;
+  word-break: break-all;
+  white-space: pre-line;
+}
+
+.optionsBox{
+  width: 80%; 
+  float: right;
+  height:80rpx;
+  display: flex;
+  margin: 20rpx;
+  background-color: white;
+  
+}
+
+.optionsButton{
+  width: 95%; 
+  height: 100%;
+  font-size: 26rpx; 
+}
+
+
+.newsaImage {    
+width:100%;
+height:400rpx; 
+margin-bottom: 20px;
+margin-left: 80rpx;
+}
+.top {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    height: 80rpx;
+    background-color: #fff;
+    border-bottom: solid 1px #efefef;
+    margin-top:-20px;
+}
+
+.top-item {
+    line-height: 80rpx;
+    flex: 1;
+    text-align: center;
+    font-family: PingFangSC-Regular;
+    font-size: 30px;
+    color: #666;
+    padding: 0 20rpx;
+}
+
+.top-item text {
+    display: inline-block;
+    line-height: 80rpx;
+    flex: 1;
+    text-align: center;
+    font-family: PingFangSC-Regular;
+    font-size: 30rpx;
+    color: #666;
+    padding: 0 20rpx;
+}
+.talkBg{
+  justify-content: end;background-color: rgba(0,0,0,0);position: fixed;top: 0;bottom: 0;left: 0;right: 0;
+  visibility: hidden;
+}
+
+.talkBg:focus-within{
+  justify-content: end;background-color: rgba(0,0,0,0.5);position: fixed;top: 0;bottom: 0;left: 0;right: 0;
+  visibility: visible;
+}
+
+.talk{
+  display: flex;
+  position:fixed;
+  bottom:0;
+  background-color: white;
+  padding: 20rpx;
+  width: 100%;
+  border-top: #999;
+  visibility: visible;
+}
+
+
+
+.input{
+  width: 75%;
+  min-height: 60rpx;
+  margin-right: 10rpx;
+  margin-left: 14rpx;
+  margin-top: 12rpx;
+  margin-bottom: 30rpx;
+  background-color: #ddd;
+  padding: 10rpx;
+  border-radius: 20rpx;
+}
+.input:focus-within{
+  width: 75%;
+  min-height: 200rpx;
+  max-height: 400rpx;
+  margin-right: 10rpx;
+  margin-left: 14rpx;
+  margin-top: 12rpx;
+  margin-bottom: 30rpx;
+  background-color: #eee;
+  padding: 10rpx;
+  font-size: 14px;
+  border-radius: 20rpx;
+}
+
+.commentBtn{
+  margin-bottom: 30rpx;
+  font-size: 12rpx;
+  width: 25%;
+  
+}
+
+.confirm{
+  font-size: 30rpx;
+  margin-top: 30rpx;
+  margin-bottom: 50rpx;
+  margin-right: 20rpx;
+}
+.fixedBtn{
+  position: fixed; 
+  bottom: 250rpx; 
+  width: 100%; 
+  height: 100rpx;
+  z-index: 9;
+}
+
+
+/* 评论框 yiling 20200408 start */
+.commentContent {
+  bottom: 20rpx;
+  left: 20rpx;
+  right: 20rpx;
+  font-size: 24rpx;
+  border: 2rpx solid #f0f0f0;
+  border-radius: 34rpx;
+  padding: 20rpx;
+  color: #999;
+  line-height: 24rpx;
+
+}
+
+.commentContentBar {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  height: 100rpx;
+  padding: 12rpx;
+  padding-top: 20rpx;
+  background-color: white;
+}
+
+.mytoptext
+{
+    font-size:19px;
+    font-family:fantasy;
+    color: white;
+    text-align: center;
+    font-style: italic;
+}
+/* 评论框 yiling 20200408 end */
+

@@ -1,0 +1,114 @@
+.loginOutBtn{
+  width: 100rpx;
+  height: 100rpx;
+  display: inline;
+
+}
+
+.loginInBtn{
+  width: 80rpx;
+  height: 80rpx;
+  display: inline;
+}
+.user{
+  display: flex;
+  width: 100%;
+  height: 200rpx;
+  line-height: 150rpx;
+  padding: 20rpx;
+  padding-bottom: 20rpx;
+  border-radius: 10rpx;
+  vertical-align: bottom;
+  justify-content: last baseline;
+}
+.userName{
+  position: absolute;
+  top:5%;
+  left:5%;
+  font-size: 45rpx;
+  height: 50rpx;
+
+}
+.touxiang{
+  background-color: #def5f5;
+  position: absolute;
+  top:9%;
+  left:7%;
+  width: 120rpx;
+  height: 120rpx;
+  margin:auto;
+  border-width: 7rpx;
+  border-color: rgba(195, 219, 235, 0.884);
+  border-style: solid;
+  border-radius: 50%;
+}
+
+/* pages/collection/collection.wxss */
+.plate{
+  width: 100%;
+  height: 100%;
+  padding: 5rpx;
+}
+
+.posterBox{
+  padding: 5rpx;
+  width: 94%;
+  display: flex;
+  vertical-align: center;
+  line-height: 60rpx;
+  border: solid 1px #444;
+  border-radius: 10rpx;
+  margin: 7rpx;
+  box-shadow: 5rpx 5rpx 5rpx 5rpx rgb(192, 192, 192);
+}
+
+.posterName{
+  font-weight: bold;
+  font-size:13px;
+  margin-left: 10rpx;
+}
+.posterTimeStamp{
+  margin-left: 25rpx;
+  font-size: 10px;
+}
+
+.posterFace{
+  width:95rpx;
+  height:95rpx;
+  border-radius: 50%;
+}
+
+.detail{
+  font-size: 13px;
+  width: 100%;
+  height: auto;
+  line-height: 10rpx;
+  word-wrap: break-word;
+  word-break: break-all;
+  white-space: pre-line;
+  margin-left: 10rpx;
+  font-size: 10px;
+}
+
+.myrelease{
+  font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  font-size: large;
+  text-align: center;
+  color: gray;
+}
+
+.mynamecolor{
+    background: linear-gradient(to right, rgb(0,128,255),rgb(14,158,216), rgb(26,183,185));
+    -webkit-background-clip: view;
+    background-clip: view; 
+    color: transparent;
+}
+
+.mytoptext
+{
+    font-size:19px;
+    font-family:fantasy;
+    color: white;
+    text-align: center;
+    font-style: italic;
+}

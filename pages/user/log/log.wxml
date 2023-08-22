@@ -1,0 +1,299 @@
+<cu-custom bgColor="bg-gradual-blue" isCustom="{{true}}">
+	<view slot="backText">返回</view>
+	<view slot="content">开发日志</view>
+</cu-custom>
+
+<view class="cu-timeline">
+  <view class="cu-item text-blue">
+    <view class="bg-blue content shadow">
+      <view class="cu-capsule radius">
+        <view class="cu-tag bg-white text-blue">v2.0.5</view>
+        <view class="cu-tag line-white">2022/5/5</view>
+      </view>
+      <view class="margin-top-sm text-content">
+      <view>1.实现使用用户openid作为相关文档索引</view>
+      <view>2.界面优化</view>
+      </view>
+    </view>
+  </view>
+</view>
+
+<view class="cu-timeline">
+  <view class="cu-item text-blue">
+    <view class="bg-blue content shadow">
+      <view class="cu-capsule radius">
+        <view class="cu-tag bg-white text-blue">v2.0.1</view>
+        <view class="cu-tag line-white">2022/5/2</view>
+      </view>
+      <view class="margin-top-sm text-content">
+      <view>1.将评论框改回原版，并进行调整</view>
+      <view>2.解决了登录后无法显示收藏数和发布数的bug</view>
+      <view>3.解决了ios无法显示对话框底部按钮文字的bug</view>
+      <view>4.新增版本检测功能</view>
+      </view>
+    </view>
+  </view>
+</view>
+
+<view class="cu-timeline">
+  <view class="cu-item text-blue">
+    <view class="bg-blue content shadow">
+      <view class="cu-capsule radius">
+        <view class="cu-tag bg-white text-blue">v2.0.0</view>
+        <view class="cu-tag line-white">2022/5/2</view>
+      </view>
+      <view class="margin-top-sm text-content">2.0正式版上线</view>
+    </view>
+  </view>
+</view>
+
+<view class="cu-timeline">
+  <view class="cu-item text-blue">
+    <view class="bg-blue content shadow">
+      <view class="cu-capsule radius">
+        <view class="cu-tag bg-white text-blue">v1.3.4</view>
+        <view class="cu-tag line-white">2022/5/1</view>
+      </view>
+      <view class="margin-top-sm text-content">
+      <view>1.删除了主页面的分享按钮</view>
+      <view>2.新增点击发布后的模态框</view>
+      <view>3.新增"我的"页面中的数据统计</view>
+      <view>4.实现ID数字化</view>
+      <view>5.修复搜索框的一些Bug</view>
+      <view>6.完善自动销毁功能</view>
+      <view>7.修复了登录后自动查询ID的Bug</view>
+      </view>
+    </view>
+  </view>
+</view>
+
+<view class="cu-timeline">
+  <view class="cu-item text-blue">
+    <view class="bg-blue content shadow">
+      <view class="cu-capsule radius">
+        <view class="cu-tag bg-white text-blue">v1.3.3</view>
+        <view class="cu-tag line-white">2022/4/28</view>
+      </view>
+      <view class="margin-top-sm text-content">
+      <view>1.修复了分享页面点修改按钮无反应的bug</view>
+      <view>2.分享页面使用导航栏分离代码与评论</view>
+      <view>3.评论框修改完成，不会被输入法遮挡</view>
+      <view>4.将所有用到的插件放到components下</view>
+      <view>5.移除冗余的towxml</view>
+      <view>6.新增textarea-fixed-bottom</view>
+      <view>7.修复了代码太短时md代码块宽度也短的bug</view>
+      <view>8.在高亮预览状态下按下清空按钮可以恢复编辑状态</view>
+      <view>9.点击“我的”页面的中间展示区可以跳转到对应页面</view>
+      </view>
+    </view>
+  </view>
+</view>
+
+<view class="cu-timeline">
+  <view class="cu-item text-blue">
+    <view class="bg-blue content shadow">
+      <view class="cu-capsule radius">
+        <view class="cu-tag bg-white text-blue">v1.3.2</view>
+        <view class="cu-tag line-white">2022/4/27</view>
+      </view>
+      <view class="margin-top-sm text-content">
+      <view>1.增加"加载中"的动画效果</view>
+      <view>2.新增返回顶部按钮</view>
+      <view>3.个人中心更新</view>
+      <view>4.新增自动销毁功能</view>
+      </view>
+    </view>
+  </view>
+</view>
+
+<view class="cu-timeline">
+  <view class="cu-item text-blue">
+    <view class="bg-blue content shadow">
+      <view class="cu-capsule radius">
+        <view class="cu-tag bg-white text-blue">v1.3.1</view>
+        <view class="cu-tag line-white">2022/4/26</view>
+      </view>
+      <view class="margin-top-sm text-content">
+      <view>1.更改了主页布局</view>
+      <view>2.更改了分享页面的评论框样式</view>
+      <view>3.增加编程语言的显示</view>
+      <view>4.修改大量布局和样式</view>
+      <view>5.接入微信内容审核接口，实现了对上传内容进行审核的功能</view>
+      <view>6.更换高亮插件，新增行号</view>
+      <view>7.修复行号显示异常的问题</view>
+      <view>8.修复高亮状态下长按选择的bug</view>
+      <view>9.增加当高亮未渲染完成时显示“加载中”的功能</view>
+      </view>
+    </view>
+  </view>
+</view>
+
+<view class="cu-timeline">
+  <view class="cu-item text-blue">
+    <view class="bg-blue content shadow">
+      <view class="cu-capsule radius">
+        <view class="cu-tag bg-white text-blue">v1.3.0</view>
+        <view class="cu-tag line-white">2022/4/25</view>
+      </view>
+      <view class="margin-top-sm text-content">
+      <view>1.引入了ColorUI，大幅美化界面</view>
+      <view>2.修复了若干Bug</view>
+      </view>
+    </view>
+  </view>
+</view>
+
+
+<view class="cu-timeline">
+  <view class="cu-item text-blue">
+    <view class="bg-blue content shadow">
+      <view class="cu-capsule radius">
+        <view class="cu-tag bg-white text-blue">v1.2.4</view>
+        <view class="cu-tag line-white">2022/4/23</view>
+      </view>
+      <view class="margin-top-sm text-content">
+      <view>1.修复删除，保存等操作后没刷新的bug，并增加了转存功能</view>
+      <view>2.增加了首页的清空功能</view>
+      <view>3.实现了删除分享同时删除相关评论的功能</view>
+      <view>4.修改了“我的”页面的布局</view>
+      <view>5.删除搜索栏放大镜按钮的阴影</view>
+      <view>6.调整了分享页面的信息显示布局</view>
+      <view>7.删除了分享页面的代码输入框</view>
+      <view>8.添加了分享标题</view>
+      <view>9.优化使用流程</view>
+      </view>
+    </view>
+  </view>
+</view>
+
+<view class="cu-timeline">
+  <view class="cu-item text-blue">
+    <view class="bg-blue content shadow">
+      <view class="cu-capsule radius">
+        <view class="cu-tag bg-white text-blue">v1.2.3</view>
+        <view class="cu-tag line-white">2022/4/22</view>
+      </view>
+      <view class="margin-top-sm text-content">
+      <view>1.增加了在分享页面中的收藏按钮</view>
+      <view>2.实现了删除分享页面的功能</view>
+      <view>3.实现了按页面ID搜索的功能</view>
+      <view>4.修复了分享的若干Bug</view>
+      <view>5.实现了按钮显示是否收藏的功能</view>
+      <view>6.整合了若干文件</view>
+      </view>
+    </view>
+  </view>
+</view>
+
+<view class="cu-timeline">
+  <view class="cu-item text-blue">
+    <view class="bg-blue content shadow">
+      <view class="cu-capsule radius">
+        <view class="cu-tag bg-white text-blue">v1.2.2</view>
+        <view class="cu-tag line-white">2022/4/21</view>
+      </view>
+      <view class="margin-top-sm text-content">
+      <view>1.完善评论系统</view>
+      <view>2.实现了评论与页面进行绑定的功能</view>
+      <view>3.实现了未登录无法评论功能</view>
+      <view>4.实现了进入分享页面自动高亮的功能</view>
+      <view>5.初步实现了"收藏"和"我发布的"功能</view>
+      <view>6.优化了整体设计</view>
+      <view>7.修复了若干Bug</view>
+      </view>
+    </view>
+  </view>
+</view>
+
+<view class="cu-timeline">
+  <view class="cu-item text-blue">
+    <view class="bg-blue content shadow">
+      <view class="cu-capsule radius">
+        <view class="cu-tag bg-white text-blue">v1.2.1</view>
+        <view class="cu-tag line-white">2022/4/17</view>
+      </view>
+      <view class="margin-top-sm text-content">
+      <view>1.改用表单提交，使得小程序可以及时相应内容变更</view>
+      </view>
+    </view>
+  </view>
+</view>
+
+<view class="cu-timeline">
+  <view class="cu-item text-blue">
+    <view class="bg-blue content shadow">
+      <view class="cu-capsule radius">
+        <view class="cu-tag bg-white text-blue">v1.2.0</view>
+        <view class="cu-tag line-white">2022/3/20</view>
+      </view>
+      <view class="margin-top-sm text-content">1.抛弃demo，重构基础代码</view>
+    </view>
+  </view>
+</view>
+
+<view class="cu-timeline">
+  <view class="cu-item text-blue">
+    <view class="bg-blue content shadow">
+      <view class="cu-capsule radius">
+        <view class="cu-tag bg-white text-blue">v1.1.1</view>
+        <view class="cu-tag line-white">2022/3/13</view>
+      </view>
+      <view class="margin-top-sm text-content">
+      <view>1.实现登录功能</view>
+      <view>2.增加评论系统</view>
+      </view>
+    </view>
+  </view>
+</view>
+
+<view class="cu-timeline">
+  <view class="cu-item text-blue">
+    <view class="bg-blue content shadow">
+      <view class="cu-capsule radius">
+        <view class="cu-tag bg-white text-blue">v1.1.0</view>
+        <view class="cu-tag line-white">2022/2/26</view>
+      </view>
+      <view class="margin-top-sm text-content">
+      <view>1.实现将输入的文本保存到微信云数据库中的功能</view>
+      <view>2.实现利用文本ID查询云数据库内容的功能</view>
+      <view>3.实现分享小程序后他人可进入小程序查看分享文本的功能</view>
+      </view>
+    </view>
+  </view>
+</view>
+
+<view class="cu-timeline">
+  <view class="cu-item text-blue">
+    <view class="bg-blue content shadow">
+      <view class="cu-capsule radius">
+        <view class="cu-tag bg-white text-blue">v1.0.2</view>
+        <view class="cu-tag line-white">2022/2/24</view>
+      </view>
+      <view class="margin-top-sm text-content">1.接入微信云开发</view>
+    </view>
+  </view>
+</view>
+
+<view class="cu-timeline">
+  <view class="cu-item text-blue">
+    <view class="bg-blue content shadow">
+      <view class="cu-capsule radius">
+        <view class="cu-tag bg-white text-blue">v1.0.1</view>
+        <view class="cu-tag line-white">2022/2/3</view>
+      </view>
+      <view class="margin-top-sm text-content">1.实现了Markdown渲染文本</view>
+    </view>
+  </view>
+</view>
+
+<view class="cu-timeline">
+  <view class="cu-item text-blue">
+    <view class="bg-blue content shadow">
+      <view class="cu-capsule radius">
+        <view class="cu-tag bg-white text-blue">v1.0.0</view>
+        <view class="cu-tag line-white">2022/2/1</view>
+      </view>
+      <view class="margin-top-sm text-content">1.项目正式创建</view>
+    </view>
+  </view>
+</view>

@@ -1,0 +1,194 @@
+<cu-custom bgColor="bg-gradual-blue">
+  <view slot="content" class="mytoptext">CodeShareX</view>
+</cu-custom>
+
+
+<view class="outside">
+  <!--顶部-->
+  <view class="topbox">
+    <!--搜索栏-->
+    <form bindsubmit="onSearchSubmit">
+      <view class="cu-bar search bg-white flex justify-end" style="width: 100%;">
+        <view class="search-form round">
+          <text class="cuIcon-search"></text>
+          <input type="text" placeholder="输入ID" confirm-type="search" name="search"></input>
+        </view>
+        <view class="action" style="width: 150rpx;">
+          <button class="cu-btn bg-green shadow-blur  text-lg" form-type="submit">跳转</button>
+        </view>
+      </view>
+    </form>
+
+  </view>
+
+  <view style="width: 100%;background-color: #eee;height: 1rpx;"></view>
+  <!-- 轮播区 -->
+
+  <!-- 内容区 -->
+  <view class="mainbox">
+
+    <!--长文本输入框-->
+    <form bindsubmit="onFormSubmit">
+      <!--语言选择-->
+      <view class="topbar">
+        <view style="width: 60%;display: flex;">
+          <view class="text-sm padding-sm">选择语言：</view>
+          <picker class="bg-grey radius padding-sm" range="{{langsArr}}" value="0" data-name="langIndex"
+            bindchange="bindPickerEvent">
+            <view style="font-weight: bold; ">
+              {{langsArr[langIndex]}}
+            </view>
+          </picker>
+        </view>
+
+        <view class="flex justify-end" style="margin-left: 50rpx; width: 40%;">
+          <button class="cu-btn bg-green shadow-blur text-lg lg" form-type="submit" data-type="show"
+            bindtap="test2">{{renderState?"返回编辑":"高亮预览"}}
+            <!--<span class="cuIcon-{{renderState?'edit':'read'}}" style="margin-left: 10rpx;"></span>-->
+          </button>
+        </view>
+      </view>
+
+      <view style="width: 100%;background-color: #eee;height: 1rpx;"></view>
+
+      <view class="buttonstyle">
+        <button class="cu-btn bg-blue shadow-blur round text-lg" bindtap="clearContent">清空
+          <!--<view class="cuIcon-delete" style="margin-left: 10rpx;"></view>-->
+        </button>
+        <button class="cu-btn bg-blue shadow-blur round  text-lg" form-type="submit" data-type="modal">
+          <view bindtap="getContentID">发布
+            <!--<span class="cuIcon-check" style="margin-left: 10rpx;"></span>-->
+          </view>
+        </button>
+        <!--<button  class="cu-btn bg-blue shadow-blur round  text-lg" open-type="share" >分享</button>-->
+      </view>
+
+      <view style="width: 100%;background-color: #eee;height: 1rpx;margin-bottom:10rpx;"></view>
+
+
+
+      <view wx:if="{{!renderState}}" class="cu-form-group">
+
+        <textarea maxlength="-1" disabled="{{modalName!=null}}" placeholder="此处输入代码" name="code" value="{{textInput}}"
+          auto-focus="true" auto-height="true" style="margin-top: 5rpx;">
+        </textarea>
+      </view>
+
+      <!--markdown展示-->
+      <view class="code" wx:else style="background-color: white;">
+        <!--<template  is="entry" data="{{...article}}"/>-->
+        <wemark md="{{md}}" link highlight type="wemark"></wemark>
+      </view>
+
+      <!--模态框-->
+      <view class="cu-modal bottom-modal {{showBottomModal?'show':''}}">
+        <view class="cu-dialog">
+          <view class="cu-bar bg-white justify-between">
+            <view class="action text-gray" bindtap="hideModal">取消</view>
+            <button class="action"
+              style="box-shadow: none;background-color: white;padding: 0;font-weight: 400;justify-content: flex-end;"
+              form-type="submit" data-type="save">
+              <spsn class="text-blue text-lg padding-right">确定</spsn>
+            </button>
+          </view>
+
+          <view>
+            <!--自动销毁-->
+            <view class="cu-form-group">
+              <text class="title" style="{{neverDestory?'text-decoration:line-through':''}}">自动销毁</text>
+              <input class="bg-gray margin-left-xs justify-end"
+                style="width: 180rpx;{{neverDestory?'text-decoration:line-through':''}}" name="delTime"
+                bindinput="bindinputTime" value="{{timeInput}}" disabled="{{neverDestory}}"></input>
+
+              <view class="margin-right-xs">
+                <picker range="{{timeUnitArr}}" value="0" data-name="langIndex" bindchange="bindTimePickerEvent"
+                  name="timeUnit" style="width: 100rpx;line-height: 80rpx;">
+                  <view class="picker">{{timeUnitArr[timeUnitIndex]}}</view>
+                </picker>
+              </view>
+
+              <view class="flex justify-end solids-left">
+
+                <switch class="blue sm margin-left margin-right" name="neverDestory" data-type="neverDestory" checked
+                  bindchange="onSwitchChange"></switch>
+                <view class="title">永久</view>
+              </view>
+            </view>
+            <!--密码-->
+            <view class="cu-form-group">
+              <text class="title" style="{{isPublic?'text-decoration:line-through':''}}">使用密码</text>
+              <input class="bg-gray margin-left-xs margin-right-xs justify-end"
+                style="width: 180rpx;{{isPublic?'text-decoration:line-through':''}}" type="text" name="pwd"
+                bindinput="bindinputPwd" value="{{pwdInput}}" disabled="{{isPublic}}"></input>
+
+              <view class="flex justify-end solids-left">
+                <switch class="blue sm margin-left margin-right" data-type="isPublic" checked
+                  bindchange="onSwitchChange"></switch>
+                <view class="title">公开</view>
+              </view>
+            </view>
+
+          </view>
+        </view>
+      </view>
+
+    </form>
+
+  </view>
+
+  <!--悬浮按钮-->
+  <view class="fixedBtn flex justify-end" hidden="{{!showReturnTopBtn}}" bindtap="scrollToTop">
+    <view class="cu-btn bg-blue icon radius shadow margin-sm" style="width: 120rpx;height: 120rpx;"><text
+        class="cuIcon-top lg round"></text></view>
+  </view>
+
+  <!--dialog-->
+  <view class="cu-modal {{showSucceedModal?'show':''}}">
+    <view class="cu-dialog">
+      <view class="cu-bar bg-white justify-end">
+        <view class="content">提示</view>
+        <view class="action" bindtap="hideModal">
+          <text class="cuIcon-close text-red"></text>
+        </view>
+      </view>
+      <view class="padding-xl">
+        <view>发布成功。</view>
+        <view>是否分享给好友？</view>
+        <view>可在“我的”->“我的发布”中查看</view>
+      </view>
+      <view class="cu-bar bg-white">
+        <button class="cu-btn flex-sub solid-left" bindtap="hideModal">取消</button>
+        <button class="cu-btn flex-sub bg-blue solid-left" bindtap="hideModal" open-type="share">确定</button>
+      </view>
+    </view>
+  </view>
+
+
+</view>
+
+
+
+
+
+<!-- 废弃源代码 -->
+
+<!-- <view class="textbox">
+        <textarea bindinput="inputContent" name="code" bindblur="bindTextAreaInput" auto-focus="true" auto-height="true" maxlength="-1" placeholder="此处输入代码" value="{{textInput}}" class="textbox_textarea"></textarea>
+</view> -->
+
+<!-- <view class="searchBar">
+
+<view class="searchBorder">
+
+  <input class="search" name="search" />
+  
+  <button class="searchBtn" size="mini" form-type="submit"  plain="true" style="padding: 0; border: none; box-shadow: none;">
+    <image src="../../icons/search.png" style="float: right;height: 70rpx; width:70rpx;" form-type="submit"></image>
+  </button>
+</view>
+
+</view> -->
+
+<!-- <button form-type="submit" size="mini" style="position: absolute; right: 25rpx;">{{renderState ? "编辑" : "生成"}}</button>
+<button class="cu-btn round shadow-blur bg-green" size="mini" form-type="submit" style="font-weight: normal;float: right;">{{renderState ? "编辑" : "生成"}}</button>
+    </view> -->

@@ -1,0 +1,96 @@
+/**index.wxss**/
+page{
+    padding: 0;
+    margin: 0;
+}
+
+.outside{
+    background-color: white;
+    height: 100%;
+}
+
+/* 顶部区域 */
+
+
+.topbar{
+    display: flex; 
+    height: 100rpx;
+    width: 100%;
+    align-items: center; 
+    display: flex;
+    margin-top: 10rpx;
+    padding: 12px;
+    padding-bottom: 28rpx;
+}
+
+.topbox .topbar button{
+    width: 100px;
+}
+.topbox .topbar picker{
+    width: 30%;
+}
+
+.left-box {
+    margin: auto;
+    margin-left: 10rpx;
+}
+
+.searchBar{
+    width: 100%; height: 80rpx; padding: 4rpx;background-color: #EEE;
+}
+.searchBorder{
+    display: flex; width: 98%; height: 100%; line-height: 80rpx;border: solid 1px #BBB;border-radius: 15rpx;
+}
+
+.search{
+    width: 100%;height: 100%;padding: 4rpx; font-size: 14px;
+}
+
+
+  
+
+/* 中部内容 */
+.mainbox{
+    margin-top: 10rpx;
+    height: 400rpx;
+}
+
+.mainbox .textbox{
+    margin: 5rpx;
+    width: 98%;
+    height: 100rpx;
+    border: 2px solid #EEE;
+    border-radius: 4px;
+    float: left;
+}
+
+.mainbox .textbox .textbox_textarea{
+    padding: 30rpx 0;
+    background-color: #EEE;
+    font-size: 30rpx;
+    width: 100%;
+}
+
+.mainbox .buttonstyle{
+    height: 100rpx;
+    width: 100%; 
+    display: flex;
+    text-align: center;
+    padding: 14rpx;
+}
+
+.mainbox .buttonstyle button{
+    margin-left: 10rpx;
+    margin-right: 10rpx;
+    margin-bottom: 10rpx;
+    width: 50%;
+}
+.fixedBtn{
+    position: fixed; 
+    bottom: 5%; 
+    width: 100%; 
+    height: 100rpx;
+    z-index: 9;
+}
+
+

@@ -1,0 +1,21 @@
+<!--pages/userInfo.wxml-->
+<cu-custom bgColor="bg-gradual-blue" isCustom="{{true}}">
+	<view slot="backText">返回</view>
+	<view slot="content">个人信息</view>
+</cu-custom>
+
+<view>
+    <view class="flex justify-center solid-bottom padding-lg ">
+        <button class="cu-btn bg-green" style="width: 200rpx; height: 200rpx; padding: 0; background-color:transparent;" open-type="chooseAvatar" bind:chooseavatar="onChooseAvatar">
+            <image class="cu-avatar avatar round" src="{{userInfo.avatarUrl}}"></image>
+        </button> 
+    </view>
+    <view class="border-top border-bottom solid-bottom margin-top-lg padding-left-lg padding-right-lg padding-top-sm padding-bottom-sm flex">
+        <text class="text-xl text-bold margin-right">昵称</text>
+        <input type="nickname" class="weui-input text-xl margin-left" bindblur="onNameChange" value="{{userInfo.nickName}}"/>
+    </view>
+    <view class="flex justify-center padding padding-top-xl flex-direction">
+        <button class="cu-btn bg-blue lg shadow" style="width:100%" bindtap="saveInfo">确认</button>
+    </view>
+    
+</view>

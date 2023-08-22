@@ -1,0 +1,33 @@
+<view style="width: 100% ;height: auto;">
+	<view style="margin-top: 15rpx; width: 100%;text-align: center;font-size: 13px;" wx:if="{{isLoading}}">
+		<view class="cu-load bg-blue {{!isLoad?'loading':'over'}}" style="width:100%;"></view>
+	</view>
+
+	<view class="wemark_wrapper" style="display: flex;width: 87%;">
+		<view wx:if="{{showLineNumbers}}" class="linenums" style="height: 100%;font-size:32rpx;line-height: 1.5em;padding:10px;">
+			<text style="text-align: right;width: 100%;float: left;" >{{lineNums}}</text>
+		</view>
+
+		<view style="width: 100%;height: 100%;display:block">
+			<block wx:if="{{type === 'wemark'}}" wx:for="{{parsedData}}" wx:key="blockIndex" wx:for-index="blockIndex" wx:for-item="renderBlock">
+				<view class="wemark_block_{{renderBlock.type}}" style="background-color: rgb(249, 251, 252);">
+					<block wx:if="{{renderBlock.isArray}}" wx:for="{{renderBlock.content}}" wx:key="inlineIndex" wx:for-index="inlineIndex" wx:for-item="renderInline">
+						
+						<text class="wemark_inline_{{renderInline.type}}" wx:if="{{renderInline.type === 'text' || renderInline.type === 'code' || renderInline.type === 'strong' || renderInline.type === 'strong_em' || renderInline.type === 'deleted' || renderInline.type === 'em' || renderInline.type === 'table_th' || renderInline.type === 'table_td'}}">{{renderInline.content}}</text>
+						<!-- 代码高亮 -->
+						
+						<text class="wemark_inline_code_{{renderInline.type}}" wx:if="{{renderInline.type&&renderBlock.highlight}}">{{renderInline.content}}</text>
+						<text class="wemark_inline_code_text" wx:if="{{!renderInline.type}}">{{renderInline}}</text>
+						<navigator class="wemark_inline_link" url="{{renderInline.data.href}}" wx:if="{{renderInline.type === 'link'}}">{{renderInline.content}}</navigator>
+						<image mode="widthFix" class="wemark_inline_image" src="{{renderInline.src}}" wx:if="{{renderInline.type === 'image'}}"></image>
+					</block>
+					<block wx:if="{{!renderBlock.isArray}}">
+						<view wx:if="{{renderBlock.type === 'code'}}">{{renderBlock.content}}</view>
+						<video wx:if="{{renderBlock.type == 'video'}}" class="wemark_block_video" src="{{renderBlock.src}}" poster="{{renderBlock.poster}}" controls></video>
+					</block>
+				</view>
+			</block>
+			<rich-text class="wemark_wrapper_richtext" wx:if="{{type === 'rich-text'}}" nodes="{{richTextNodes}}"></rich-text>
+		</view>
+	</view>
+</view>

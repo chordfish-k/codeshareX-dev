@@ -1,0 +1,232 @@
+<!-- index.wxml -->
+<cu-custom bgColor="bg-gradual-blue" isCustom="{{true}}">
+  <view slot="backText">返回</view>
+  <view slot="content" class="mytoptext">CodeShareX</view>
+</cu-custom>
+
+
+<view class="outside">
+  <!-- 顶部 -->
+  <form bindsubmit="onFormSubmit" style="width: 100%;">
+
+    <view class="posterBox">
+      <view class="poster">
+        <image src="{{posterInfo.photo}}" class="userFace" />
+      </view>
+      <view class="userContent">
+        <span class="posterName">{{posterInfo.name}}</span>
+        <view class="posterTimeStamp">发布时间：{{posterInfo.postTime}}</view>
+        <!-- <view class="posterTimeStamp">销毁时间：{{neverDestory || neverDestory==undefined?"无": destoryTimeStr}}</view> -->
+        <view class="posterTimeStamp">销毁时间：{{posterInfo.destTime}}</view>
+        <view class="flex align-center margin-bottom">
+          <view class="posterTimeStamp">文本编号：</view>
+          <view class="posterTimeStamp" style="font-size: 10px;color:white;margin-left:0" bindtap="copyID">{{myid}}
+            (点击复制)</view>
+        </view>
+
+      </view>
+    </view>
+
+    <!--导航栏-->
+    <view scroll-y="true" class="bg-white nav" hidden="{{isLocked}}">
+      <view class="flex text-center">
+        <view class="cu-item flex-sub {{index==TabCur?'text-blue cur':''}}" wx:for="{{2}}" wx:key="id"
+          bindtap="tabSelect" data-id="{{index}}">
+          {{index==0?"代码":"评论"}}{{index==1?"("+talks.length+")":""}}
+        </view>
+      </view>
+    </view>
+
+    <scroll-view id="scroll" scroll-y="true" scroll-into-view="{{scrollToView}}" class="newsBox" style="height: {{winHeight}};" bindscroll="onCommentScroll">
+
+    <view hidden="{{!isLocked}}">
+
+      <view class="flex align-center justify-center margin-lg">
+        <view style="text-align: right;font-size: 34rpx;font-weight: 700;display: block;">请输入密码：</view>
+        <view class="bg-gray padding-sm solid-bottom"
+          style="width:40%; text-align: center; border-radius: 15rpx;margin-top: 16rpx;display: block;">
+          <input class="radius-lg " style="width:100%;height:50rpx;text-align: left;" type="text" name="password"
+            id="password" bindinput="onPasswordInput" />
+        </view>
+
+      </view>
+
+      <view class="flex align-center justify-center" style="width: 100%;">
+        <button class="cu-btn bg-blue lg" style="width: 60%; font-size: 28rpx;" bindtap="onSubmitPassword">确定</button>
+      </view>
+    </view>
+
+    <view style="width: 100%;height: 100rpx;background-color: white;" bindtap="submitComplain"  id="top">
+      <text style="color:cornflowerblue;float: right; padding-right: 25rpx;padding-top: 30rpx;">不良内容？点我举报</text>
+    </view>
+
+    <view hidden="{{TabCur!=0 || isLocked}}">
+      <!--相关操作-->
+      <view class="buttons ocu-form-group flex margin-sm">
+        <button class="cu-btn bg-{{isCollected?collectedColor:uncollectedColor}} shadow-blur round"
+          bindtap="onCollectButton">{{isCollected?"已收藏":"收藏"}}</button>
+        <button class="cu-btn bg-blue shadow-blur round" bindtap="showModal">转存</button>
+        <button class="cu-btn bg-blue shadow-blur round" bindtap="onCopyButton">复制</button>
+        <button class="cu-btn bg-blue shadow-blur round" open-type="share">分享</button>
+        <button wx:if="{{isSelf}}" class="cu-btn bg-blue shadow-blur round" form-type="submit"
+          data-type="modify">{{renderState?"修改":"确认"}}</button>
+      </view>
+
+
+      <!-- 长文本输入框 -->
+      <view wx:if="{{!renderState}}" class="cu-form-group">
+        <textarea maxlength="-1" disabled="{{modalName!=null}}" bindinput="textareaAInput" placeholder="此处输入代码"
+          bindinput="inputContent" name="code" bindblur="bindTextAreaInput" value="{{textInput}}" auto-focus="true"
+          auto-height="true" style="margin-top: 5rpx;background-color: white;font-size: 14px;">
+            </textarea>
+      </view>
+
+      <view wx:else>
+        <!-- markdown展示 -->
+        <!--<template  is="entry" data="{{...article}}"/>-->
+        <wemark md="{{md}}" highlight type="wemark"></wemark>
+      </view>
+
+      <!--模态框-->
+      <view class="cu-modal bottom-modal {{showBottomModal?'show':''}}">
+        <view class="cu-dialog">
+          <view class="cu-bar bg-white justify-between">
+            <view class="action text-gray" bindtap="hideModal">取消</view>
+            <button class="action"
+              style="box-shadow: none;background-color: white;padding: 0;font-weight: 400;justify-content: flex-end;"
+              form-type="submit" data-type="clone">
+              <spsn class="text-blue text-lg padding-right">确定</spsn>
+            </button>
+          </view>
+
+          <view>
+            <!--自动销毁-->
+            <view class="cu-form-group">
+              <text class="title" style="{{neverDestory?'text-decoration:line-through':''}}">自动销毁</text>
+              <input class="bg-gray margin-left-xs justify-end"
+                style="width: 180rpx;{{neverDestory?'text-decoration:line-through':''}}" name="delTime"
+                bindinput="bindinputTime" value="{{timeInput}}" disabled="{{neverDestory}}"></input>
+
+              <view class="margin-right-xs">
+                <picker range="{{timeUnitArr}}" value="0" data-name="langIndex" bindchange="bindTimePickerEvent"
+                  name="timeUnit" style="width: 100rpx;line-height: 80rpx;">
+                  <view class="picker">{{timeUnitArr[timeUnitIndex]}}</view>
+                </picker>
+              </view>
+
+              <view class="flex justify-end solids-left">
+
+                <switch class="blue sm margin-left margin-right" name="neverDestory" data-type="neverDestory" checked
+                  bindchange="onSwitchChange"></switch>
+                <view class="title">永久</view>
+              </view>
+            </view>
+            <!--密码-->
+            <view class="cu-form-group">
+              <text class="title" style="{{isPublic?'text-decoration:line-through':''}}">使用密码</text>
+              <input class="bg-gray margin-left-xs margin-right-xs justify-end"
+                style="width: 180rpx;{{isPublic?'text-decoration:line-through':''}}" type="text" name="pwd"
+                bindinput="bindinputPwd" value="{{pwdInput}}" disabled="{{isPublic}}"></input>
+
+              <view class="flex justify-end solids-left">
+                <switch class="blue sm margin-left margin-right" data-type="isPublic" checked
+                  bindchange="onSwitchChange"></switch>
+                <view class="title">公开</view>
+              </view>
+            </view>
+
+          </view>
+        </view>
+      </view>
+    </view>
+    <view hidden="{{TabCur!=1  || isLocked}}">
+      <!-- 留言板实现 -->
+      <!--<view class="flex; justify-start align-center">
+            <span class=" text-black text-bold" style="font-size: 14px; margin-left: 12rpx;margin-right: 5rpx; ">{{commentsNums}}</span>
+            <span class=" text-black text-bold" style="font-size: 14px; "><text> 条评论</text></span>
+        </view>-->
+
+      <!-- <view class='top'>
+        <view bindtap="onTabsItemTap" data-index="{{index}}" class="top-item">
+          <text class="{{currentTabsIndex==index?'on':''}}"></text>
+        </view>
+      </view> -->
+
+      <!-- <view style="width: 100%;height: 100rpx;background-color: white;" bindtap="submitComplain">
+        <text style="color:cornflowerblue;float: right; padding-right: 25rpx;padding-top: 30rpx;">不良内容？点我举报</text>
+      </view> -->
+
+      <view class="newsBox">
+        <block wx:for="{{talks}}" wx:for-index="talks" wx:key="talks" class="news">
+          <view class="newsItem" id="talks_{{item.idstr}}">
+            <view class="newsFace">
+              <image src="{{item.avatar}}" class="userFace" />
+            </view>
+            <view class="newsContent">
+              <view class="userMessg">
+                <span class="userName">{{item.nickName}}</span>
+                <span class="timeStamp">{{item.time}}</span>
+                <span class="commentNo" bindtap="switchReply" data-id="{{item.idstr}}" >#{{item.idstr
+}}</span>
+              </view>
+              <a class="replyTo" bindtap="scrollToComment" data-id="talks_{{item.to}}" wx:if="{{item.to}}">>>>#{{item.to}}</a>
+              <view class="newsDescription">
+                
+                <text class="newsDetail" decode="{{true}}" space="ensp" user-select>{{item.comment}}</text>
+              </view>
+            </view>
+          </view>
+        </block>
+        
+      </view>
+    </view>
+
+    <view style="height: 500rpx;"></view>
+  
+    </scroll-view>
+  </form>
+
+
+  
+
+</view>
+
+
+<!-- 回到顶部按钮 -->
+<view class="fixedBtn flex justify-end" hidden="{{!showReturnTopBtn}}" bindtap="scrollToTop">
+  <view class="cu-btn bg-blue round shadow-lg icon radius margin-sm" style="width: 120rpx;height: 120rpx;"><text
+      class="cuIcon-top lg round"></text></view>
+</view>
+
+<!-- 悬浮留言框实现 -->
+<form bindsubmit="submit" hidden="{{isLocked}}">
+  <view class="talkBg">
+    <view class="talk align-end flex">
+      <textarea class='input' type='text' value='' maxlength="700" auto-height="true" confirm-type='send'
+        placeholder='留下友善的评论~' bindinput='talkInput' value='{{talk}}' show-confirm-bar="{{false}}"
+        cursor-spacing="220rpx" name="talk" bindkeyboardheightchange="talkForcechange"></textarea>
+      <button class="cu-btn bg-blue shadow-blur round" form-type="submit"
+        style="width: 25%;margin-bottom: 30rpx;">评论</button>
+    </view>
+  </view>
+</form>
+
+
+
+
+<!-- 固定在底部的输入框 start -->
+<!--<view class="commentContentBar">
+  <view class="commentContent" bindtap="handleIsShowComment">
+    <view>留下友善的评论~</view>
+  </view>
+  <commentBar info="{{commentBarData}}" bind:myeventEvaluationData="myeventEvaluationData"></commentBar>
+</view>-->
+
+<!-- 固定在底部的输入框 end -->
+
+
+
+<view class='cu-load load-modal' wx:if="{{isLoad}}">
+  <view class='cuIcon-emojifill text-orange'></view>
+  <view class='gray-text'>加载中...</view>
+</view>

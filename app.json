@@ -1,0 +1,59 @@
+{
+    "cloud": true,
+    "pages": [
+        "pages/light/index",
+        "pages/user/user",
+        "pages/share/share",
+        "pages/collection/collection",
+        "pages/myHistory/myHistory",
+        "pages/user/about/index",
+        "pages/user/skill/index",
+        "pages/user/log/log",
+        "pages/user/userInfo/userInfo",
+        "pages/message/message"
+    ],
+    "window": {
+        "backgroundTextStyle": "light",
+        "navigationBarBackgroundColor": "#88aaff",
+        "navigationBarTitleText": "CodeShareX",
+        "navigationStyle": "custom",
+        "navigationBarTextStyle": "black"
+    },
+    "style": "v2",
+    "sitemapLocation": "sitemap.json",
+    "usingComponents": {
+        "wemark": "components/wemark/wemark",
+        "cu-custom": "components/cu-custom/cu-custom"
+    },
+    "tabBar": {
+        "color": "#3399FF",
+        "backgroundColor": "#F8F8FF",
+        "list": [
+            {
+                "pagePath": "pages/light/index",
+                "text": "首页",
+                "iconPath": "icons/jiaobenwenjian.png",
+                "selectedIconPath": "icons/jiaobenwenjian.png"
+            },
+            {
+                "pagePath": "pages/collection/collection",
+                "text": "已收藏",
+                "iconPath": "icons/querenshoujianyoujian.png",
+                "selectedIconPath": "icons/querenshoujianyoujian.png"
+            },
+            {
+                "pagePath": "pages/myHistory/myHistory",
+                "text": "已发布",
+                "iconPath": "icons/querenshoujianyoujian.png",
+                "selectedIconPath": "icons/querenshoujianyoujian.png"
+            },
+            {
+                "pagePath": "pages/user/user",
+                "text": "我的",
+                "iconPath": "icons/yibaolouzhanghao.png",
+                "selectedIconPath": "icons/yibaolouzhanghao.png"
+            }
+        ]
+    },
+    "lazyCodeLoading": "requiredComponents"
+}

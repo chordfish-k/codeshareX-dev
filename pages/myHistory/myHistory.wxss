@@ -1,0 +1,113 @@
+.loginOutBtn{
+  width: 100rpx;
+  height: 100rpx;
+  display: inline;
+
+}
+.user{
+  display: flex;
+  width: 96%;
+  height: 150rpx;
+  line-height: 150rpx;
+  padding: 15rpx;
+  padding-bottom: 20rpx;
+  border-radius: 10rpx;
+  box-shadow: 5rpx 5rpx 5rpx 5rpx rgb(192, 192, 192);
+  vertical-align: bottom;
+  justify-content: last baseline;
+}
+.userName{
+  margin-left: 20rpx;
+  margin-right: 20rpx;
+  font-size: 16px;
+  height: 50rpx;
+
+}
+.userContent{
+  
+  float:left;
+  width:100%;
+  height: auto;
+  margin-left: 10rpx;
+}
+.userMessg{
+  width: 100%;
+  margin-left: 10rpx;
+}
+.touxiang{
+  width: 150rpx;
+  height: 150rpx;
+  border-radius: 50%;
+  box-shadow: 5rpx 5rpx 5rpx 5rpx rgb(192, 192, 192);
+}
+
+/* pages/collection/collection.wxss */
+.plate{
+  width: 100%;
+  height: 100%;
+  padding: 5rpx;
+}
+
+.posterBox{
+  padding: 16rpx;
+  width: 97%;
+  display: flex;
+  vertical-align: center;
+  line-height: 60rpx;
+  margin: 14rpx;
+  margin-bottom: 20rpx;
+  background-color: white;
+  border-radius: 10rpx;
+}
+
+.posterName{
+  font-weight: bold;
+  font-size:13px;
+  margin-left: 10rpx;
+}
+.posterTimeStamp{
+  margin-left: 10rpx;
+  font-size: 10px;
+}
+
+.posterFace{
+  width:95rpx;
+  height:95rpx;
+  border-radius: 50%;
+}
+
+.detail{
+  font-size: 13px;
+  width: auto;
+  height: auto;
+  word-wrap: break-word;
+  word-break: break-all;
+  white-space: pre-line;
+  margin-left: 14rpx;
+  margin-right: 14rpx;
+  border-radius: 10rpx;
+  padding: 12rpx;
+  background-color: #eee; 
+}
+
+.myrelease{
+  font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  font-size: 14px;
+}
+
+.fixedBtn{
+  position: fixed; 
+  bottom: 10%; 
+  width: 100%; 
+  height: 100rpx;
+  z-index: 9;
+}
+
+.mytoptext
+{
+    font-size:19px;
+    font-family:fantasy;
+    color: white;
+    text-align: center;
+    font-style: italic;
+}

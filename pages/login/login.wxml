@@ -1,0 +1,13 @@
+
+<view class="user">
+    <button class="login-bn" type='primary' bindtap='getUserProfile'
+            wx:if="{{!userInfo}}"> 
+        <text>授权登录</text>
+    </button>
+
+    <view wx:else >
+        <span><image src="{{app.userInfo.avatarUrl}}" class="touxiang"></image></span>
+        <span><text>{{app.userInfo.nickName}}</text></span>
+        <span><button bindtap="loginOut" wx:if="{{app.userInfo}}">退出登录</button></span>
+    </view>
+</view>

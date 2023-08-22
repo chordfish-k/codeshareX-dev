@@ -1,0 +1,54 @@
+<!--pages/message/message.wxml-->
+<cu-custom bgColor="bg-gradual-blue" isCustom="{{true}}">
+    <view slot="backText">返回</view>
+    <view slot="content" class="mytoptext">codeshareX</view>
+</cu-custom>
+
+<view class="bg-white cf align-center justify-between padding-left" style="height: 60rpx;">
+    <text class="fl text-lg text-bold text-black padding-xs" style="height: 60rpx;">消息({{messageCount}})</text>
+    <view class="flex-sub fr">
+        <text bindtap="tryReadAll" class="cu-btn bg-blue shadow-blur" style="width: 180rpx; height:60rpx;">全部已读</text>
+        <text bindtap="tryDeleteAll" class="cu-btn bg-red shadow-blur" style="width: 180rpx; height:60rpx;">全部删除</text>
+    </view>
+    
+</view>
+
+<!--消息列-->
+<view class="msgBox">
+    <block wx:for="{{messages}}" wx:for-index="id" wx:key="id">
+        <view class="msgCard" bindtap="onTapCard" data-id="{{id}}">
+            <!--红点-->
+            
+            <view class="innerBox">
+                
+                <view class="cf infoBox">
+                    <view class="senderInfo fl">
+                        <view class="senderName">
+                            {{item.sender_name}}
+                            <span wx:if="{{!item.is_read}}" class="text-red text-xs">
+                            <view class="reddot"></view>
+                            </span>
+                            </view>
+                        <view class="timestamp">{{item.time}}</view>
+                        
+                    </view>
+                    <!--删除按钮-->
+                    <view class="fr margin-right">
+                        <text class="cuIcon-close text-gray light" catchtap="tryDeleteCard" data-index="{{id}}"
+                            data-msgid="{{item.id}}" ></text>
+                    </view>
+                </view>
+                
+                <view class="msgContent">{{item.content}}</view>            
+            </view>
+            
+        </view>
+    </block>
+</view>
+
+
+<!-- 回到顶部按钮 -->
+<view class="fixedBtn flex justify-end" hidden="{{!showReturnTopBtn}}" bindtap="scrollToTop">
+    <view class="cu-btn bg-blue icon radius shadow margin-sm" style="width: 120rpx;height: 120rpx;"><text class="cuIcon-top lg round"></text></view>
+</view>
+
